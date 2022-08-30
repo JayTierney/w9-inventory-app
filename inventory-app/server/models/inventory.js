@@ -3,7 +3,6 @@ const { DataTypes } = require('sequelize')
 const { itemData } = require('../seedData')
 
 
-
 //creating the model
 const Item = db.define('Item', {
     title: {
@@ -15,7 +14,7 @@ const Item = db.define('Item', {
     description: {
         type: DataTypes.STRING
     },
-    catagory: {
+    category: {
         type: DataTypes.STRING
     },
     image: {
@@ -26,6 +25,7 @@ const Item = db.define('Item', {
 //mapping through the array
 
 async function seedItem () {
+    await db.sync({ force: false })
     for (let item of itemData){
         await Item.create(item)
     }
