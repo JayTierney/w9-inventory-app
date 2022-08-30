@@ -59,5 +59,3 @@
 * As a User, I want to use the application on a mobile browser
 
 * As an Admin, I want all Add and Edit item requests to have server-side validations
-
-My name is David
