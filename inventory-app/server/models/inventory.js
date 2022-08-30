@@ -1,6 +1,8 @@
-import { db } from './db'
-import { DataTypes } from 'sequelize'
-import { items } from '../seedData'
+const { db } = require('../db')
+const { DataTypes } = require('sequelize')
+const { itemData } = require('../seedData')
+
+
 
 //creating the model
 const Item = db.define('Item', {
@@ -24,9 +26,11 @@ const Item = db.define('Item', {
 //mapping through the array
 
 async function seedItem () {
-    for (let item of items){
+    for (let item of itemData){
         await Item.create(item)
     }
 }
+
+seedItem()
 
 module.exports = { Item, seedItem } 
